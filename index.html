@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>bringdealflow</title>
-  <meta name="description" content="fully done-for-you deal flow, free for 60 days to see the quality.">
-  <meta name="theme-color" content="#191919">
+  <meta name="description" content="Fully done-for-you deal flow, free for 60 days to see the quality.">
+  <meta name="theme-color" content="#000000">
   <link rel="preload" href="/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
   <style>
     @font-face {
       font-family: "Newsreader";
@@ -15,168 +16,109 @@
       font-style: normal;
       font-display: swap;
     }
+    @font-face {
+      font-family: "Inter";
+      src: url("/fonts/inter.woff2") format("woff2");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
 
     :root {
-      --bg: #191919;
-      --card: #373737;
-      --text: rgba(255, 255, 255, 0.9);
-      --strong: #ffffff;
-      --muted: rgba(255, 255, 255, 0.46);
-      --font: "Lyon-Text", "Lyon Text", "Newsreader", Georgia, "Times New Roman", serif;
+      --ink: #f3ede3;
+      /* 1 unit = 1px of the 1122px-wide reference composition */
+      --u: clamp(0.34px, calc(100vw / 1122), 0.7px);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { background: var(--bg); }
+    html, body { background: #000; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font);
-      font-size: 12.1px;
-      line-height: 1.5;
-      font-optical-sizing: auto;
+      color: var(--ink);
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 9.6svh;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
     main {
-      zoom: 1.1;
-      width: 600px;
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 84px 0 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo {
+      display: block;
+      width: calc(var(--u) * 98);
+      height: calc(var(--u) * 112);
+      margin-bottom: calc(var(--u) * 59);
     }
 
     h1 {
-      font-weight: 700;
-      font-size: 28.6px;
-      line-height: 34px;
-      color: var(--strong);
-      margin-bottom: 55px;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 14.75px 18px 15.5px;
-      margin-bottom: 14px;
-    }
-
-    /* plain text row */
-    .row {
-      height: 25.5px;
-      line-height: 25.5px;
+      font-family: "Newsreader", Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      font-size: calc(var(--u) * 56.8);
+      line-height: calc(var(--u) * 62);
+      letter-spacing: 0;
+      font-optical-sizing: auto;
       white-space: nowrap;
     }
-    .gap + .gap { margin-top: 8.5px; }
-    .card > .row + .row,
-    .card > .row + details { margin-top: 8.5px; }
 
-    /* quote rows */
-    .card.quotes { padding: 17px 18px 18.5px; }
-    .quote {
-      height: 20px;
-      line-height: 20px;
-      border-left: 3px solid #fff;
-      padding-left: 18px;
-      margin-bottom: 14px;
-      white-space: nowrap;
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: calc(var(--u) * 18);
+      width: calc(var(--u) * 344);
+      height: calc(var(--u) * 73);
+      margin-top: calc(var(--u) * 97);
+      border: calc(var(--u) * 2) solid var(--ink);
+      border-radius: 999px;
+      color: var(--ink);
+      text-decoration: none;
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 500;
+      font-size: calc(var(--u) * 20.2);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: background-color .2s ease, color .2s ease;
     }
-    .quote:last-child { margin-bottom: 0; }
+    .btn svg {
+      width: calc(var(--u) * 24);
+      height: calc(var(--u) * 24);
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .btn:hover { background: var(--ink); color: #000; }
 
-    /* toggle */
-    summary {
-      list-style: none;
-      cursor: default;
-      position: relative;
-      height: 25.5px;
-      line-height: 25.5px;
-      padding-left: 25.5px;
+    .email {
+      margin-top: calc(var(--u) * 25);
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 500;
+      font-size: calc(var(--u) * 17.8);
+      line-height: calc(var(--u) * 24);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
-    summary::-webkit-details-marker { display: none; }
-    summary::before {
-      content: "";
-      position: absolute;
-      left: 6.5px;
-      top: 50%;
-      margin-top: -4.5px;
-      border-left: 7px solid #fff;
-      border-top: 4.5px solid transparent;
-      border-bottom: 4.5px solid transparent;
-    }
-    details[open] > summary::before {
-      left: 6px;
-      margin-top: -3px;
-      border-left: 4.5px solid transparent;
-      border-right: 4.5px solid transparent;
-      border-top: 7px solid #fff;
-      border-bottom: 0;
-    }
-
-    .check {
-      position: relative;
-      height: 25.5px;
-      line-height: 25.5px;
-      padding-left: 53px;
-      white-space: nowrap;
-    }
-    .check::before {
-      content: "";
-      position: absolute;
-      left: 31px;
-      top: 50%;
-      margin-top: -7.5px;
-      width: 13px;
-      height: 13px;
-      border: 1.3px solid #fff;
-      border-radius: 2px;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    a:hover { text-decoration: underline; text-underline-offset: 3px; }
-
-    footer {
-      color: var(--muted);
-      margin-top: 32px;
-      padding-left: 2px;
-    }
-
-    @media (max-width: 660px) {
-      main { zoom: 1; padding: 72px 20px 100px; }
-      h1 { font-size: 28px; line-height: 34px; margin-bottom: 36px; }
-      .row, .check, .quote { white-space: normal; height: auto; min-height: 25.5px; }
-      .quote { min-height: 20px; }
-    }
+    .email a { color: inherit; text-decoration: none; }
   </style>
 </head>
 <body>
   <main>
-    <h1>fully done-for-you deal flow, free for 60 days to see the quality.</h1>
-
-    <section class="card">
-      <details open>
-        <summary>what I take off your plate</summary>
-        <div class="check">configuration - infrastructure built, warmed and tuned end to end</div>
-        <div class="check">prospecting - the exact decision makers worth your time</div>
-        <div class="check">outreach - personalized campaigns sent in your name</div>
-        <div class="check">follow-ups - persistent sequences until a decision is made</div>
-        <div class="check">replies - read, handled and qualified before they reach you</div>
-        <div class="check">testing - constant iteration so results compound</div>
-      </details>
-    </section>
-
-    <section class="card quotes">
-      <p class="quote">your side - show up and take the calls</p>
-      <p class="quote">my side - everything else</p>
-      <p class="quote">costs - I cover every one of them out of pocket</p>
-      <p class="quote">to start - completely free, see the value for 60 days</p>
-    </section>
-
-    <section class="card">
-      <p class="row">get started</p>
-      <p class="quote" style="margin-top: 8.5px"><a href="mailto:contact@bringdealflow.com">contact@bringdealflow.com</a></p>
-    </section>
+    <img class="logo" src="/logo.svg" alt="">
+    <h1>Fully done-for-you deal flow,<br>free for 60 days to see the quality.</h1>
+    <a class="btn" href="mailto:contact@bringdealflow.com">Contact
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+    </a>
+    <p class="email"><a href="mailto:contact@bringdealflow.com">contact@bringdealflow.com</a></p>
   </main>
 </body>
 </html>
