@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bringdealflow</title>
+  <meta name="description" content="fully done-for-you deal flow. i handle everything so you just take the calls.">
+  <meta name="theme-color" content="#191919">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #191919;
+      --card: #373737;
+      --text: rgba(255, 255, 255, 0.81);
+      --strong: #ffffff;
+      --muted: rgba(255, 255, 255, 0.46);
+      --bar: rgba(255, 255, 255, 0.9);
+      --font: "Lyon-Text", "Lyon Text", "Newsreader", Georgia, "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; text-transform: lowercase; }
+
+    html { background: var(--bg); }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    main {
+      max-width: 708px;
+      margin: 0 auto;
+      padding: 140px 24px 120px;
+    }
+
+    h1 {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--strong);
+      margin-bottom: 56px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+
+    .card > .label {
+      margin-bottom: 14px;
+    }
+
+    .quote {
+      border-left: 3px solid var(--bar);
+      padding: 2px 0 2px 14px;
+      margin: 14px 0 0;
+    }
+    .quote:first-of-type, .label + .quote { margin-top: 0; }
+
+    .toggle > summary {
+      list-style: none;
+      cursor: default;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .toggle > summary::-webkit-details-marker { display: none; }
+    .toggle > summary::before {
+      content: "";
+      border-left: 9px solid var(--strong);
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      margin-left: 6px;
+      margin-right: 2px;
+    }
+    .toggle[open] > summary::before {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 9px solid var(--strong);
+      border-bottom: 0;
+      margin-left: 4px;
+      margin-right: 0;
+    }
+    .toggle .items { margin: 14px 0 4px 36px; }
+
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .check:first-child { margin-top: 0; }
+    .check::before {
+      content: "";
+      flex: none;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--strong);
+      border-radius: 2px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    footer {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      main { padding-top: 80px; }
+      h1 { font-size: 32px; margin-bottom: 40px; }
+      .card { padding: 18px; }
+      .toggle .items { margin-left: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>fully done-for-you deal flow. i handle everything, you just take the calls.</h1>
+
+    <section class="card">
+      <details class="toggle" open>
+        <summary>what i do for you</summary>
+        <div class="items">
+          <div class="check">configuration - set up and tune everything</div>
+          <div class="check">prospecting - find the right people</div>
+          <div class="check">outreach - reach them for you</div>
+          <div class="check">follow-ups - no lead goes cold</div>
+          <div class="check">replies - handled start to finish</div>
+          <div class="check">testing - constant improvement</div>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <p class="quote">you do nothing but show up</p>
+      <p class="quote">i bring you deals</p>
+    </section>
+
+    <section class="card">
+      <p class="label">get started</p>
+      <p class="quote"><a href="mailto:contact@bringdealflow.com">contact@bringdealflow.com</a></p>
+    </section>
+
+    <footer>bringdealflow.com</footer>
+  </main>
+</body>
+</html>
